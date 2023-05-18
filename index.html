@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>MATH!</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+    <div class="grid-container">
+    <h2></h2>
+
+    <p id="question"></p>
+
+
+
+    <input  type='number' id="userInput" onkeypress='validate(event)'/>
+    <button id="answerBtn" onclick="answerButtonOnClick()">ENTER</button>
+    <div class="button-wrapper grid">
+        <button id="addition" class="mode grid">Addition</button>
+        <button id="subtraction" class="mode grid">Subtraction</button>
+        <button id="multiplication" class="mode grid">Multiplication</button>
+    <br>
+    <br>
+    <br>
+    <p2 id="count"></p2>
+    <p5 id="ratio"></p5>
+</div>
+    </div>
+    <div class="grid2">
+    <p3>Lower Limit:</p3>
+    <input  type='text' class="grid" id="lowerLimit" onkeypress='validate(event)' value='0' />
+    <p3>Upper Limit:</p3>
+    <input  type='text' id="upperLimit" class="grid" onkeypress='validate(event)' value='10' />
+</div>
+    <br>
+    <p4>History</p4>
+    <div id=historydiv>
+
+
+
+
+        
+    </div>
+
+
+
+
+
+
+    <script src="script.js"></script>
+
+
+    </body>
+</html>
