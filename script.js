@@ -4,6 +4,7 @@ var mode = "addition";
 var correctcount= 0; //amount correct
 var wrongcount= 0;//amount wrong
 var historylist=[];
+var input = document.getElementById('userInput');
 
 //these are for changing button colors, assigning the buttons to a variable.
 let btnAdd= document.querySelector('#addition');
@@ -25,6 +26,12 @@ refreshQ();
 document.getElementById("count").innerHTML='Correct Answers: '+correctcount;
 document.getElementById("ratio").innerHTML='ratio: '+correctRatio.toFixed(2);
 
+//auto confirm
+
+input.addEventListener('keyup', () => {
+    answerButtonOnClick()});
+
+
 //only "0-9" , "." , and "-" for inputs also enter key works as a button click
 function validate(evt) { 
     var theEvent = evt || window.event;
@@ -33,13 +40,12 @@ function validate(evt) {
     
 
     key = String.fromCharCode(key);
+
     if (theEvent.keyCode === 13) {
         answerButtonOnClick();
     }
-    if (theEvent.keyCode === 110) {
-        answerButtonOnClick();
-    }
-    var regex = /[0-9]|\|-/;
+
+    var regex = /[0-9]|\.|-/;
     if( !regex.test(key) ) {
       theEvent.returnValue = false;
       if(theEvent.preventDefault) theEvent.preventDefault();
@@ -47,7 +53,7 @@ function validate(evt) {
 }
 //for when the answer button is clicked -> also called when the enterkey is pressed
 function answerButtonOnClick() {
-    input=document.getElementById("userInput").value;
+    input=document.getElementById("userInput").valueAsNumber;
     answerTest();
 };
 
@@ -62,7 +68,8 @@ function answerTest() {
     } else {
         wrongcount=wrongcount+1
     }
-    correctRatio=correctcount/(wrongcount+correctcount);
+    //correctRatio=correctcount/(wrongcount+correctcount);
+    correctRatio=1
     document.getElementById("count").innerHTML='Correct Answers: '+correctcount;
     document.getElementById("ratio").innerHTML='ratio: '+correctRatio.toFixed(2);
 
