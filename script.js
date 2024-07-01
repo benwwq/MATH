@@ -36,7 +36,7 @@ function validate(evt) {
     if (theEvent.keyCode === 13) {
         answerButtonOnClick();
     }
-    if (theEvent.keyCode === 190) {
+    if (theEvent.keyCode === 110) {
         answerButtonOnClick();
     }
     var regex = /[0-9]|\|-/;
